@@ -23,25 +23,25 @@ class MainActivity : AppCompatActivity() {
         newNumber = findViewById(R.id.newNum)
 
         //data input buttons
-        var btn0: Button = findViewById(R.id.btn0)
-        var btn1: Button = findViewById(R.id.btn1)
-        var btn2: Button = findViewById(R.id.btn2)
-        var btn3: Button = findViewById(R.id.btn3)
-        var btn4: Button = findViewById(R.id.btn4)
-        var btn5: Button = findViewById(R.id.btn5)
-        var btn6: Button = findViewById(R.id.btn6)
-        var btn7: Button = findViewById(R.id.btn7)
-        var btn8: Button = findViewById(R.id.btn8)
-        var btn9: Button = findViewById(R.id.btn9)
-        var dot: Button = findViewById(R.id.dot)
-        var neg: Button = findViewById(R.id.neg)
+        val btn0: Button = findViewById(R.id.btn0)
+        val btn1: Button = findViewById(R.id.btn1)
+        val btn2: Button = findViewById(R.id.btn2)
+        val btn3: Button = findViewById(R.id.btn3)
+        val btn4: Button = findViewById(R.id.btn4)
+        val btn5: Button = findViewById(R.id.btn5)
+        val btn6: Button = findViewById(R.id.btn6)
+        val btn7: Button = findViewById(R.id.btn7)
+        val btn8: Button = findViewById(R.id.btn8)
+        val btn9: Button = findViewById(R.id.btn9)
+        val dot: Button = findViewById(R.id.dot)
+        val neg: Button = findViewById(R.id.neg)
 
         //operation buttons
-        var equals = findViewById<Button>(R.id.equals)
-        var div = findViewById<Button>(R.id.div)
-        var mul = findViewById<Button>(R.id.mul)
-        var sub = findViewById<Button>(R.id.sub)
-        var add = findViewById<Button>(R.id.add)
+        val equals = findViewById<Button>(R.id.equals)
+        val div = findViewById<Button>(R.id.div)
+        val mul = findViewById<Button>(R.id.mul)
+        val sub = findViewById<Button>(R.id.sub)
+        val add = findViewById<Button>(R.id.add)
 
         val listener = View.OnClickListener { v ->
             val b = v as Button
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         btn9.setOnClickListener(listener)
         dot.setOnClickListener(listener)
 
-        val opListener = View.OnClickListener { v ->
+        val opListener = View.OnClickListener {
             val op = (v as Button).text.toString()
             val value = newNumber.text.toString()
             if (value.isNotEmpty()){
@@ -96,10 +96,10 @@ class MainActivity : AppCompatActivity() {
             }
             when (pendingOperation){
                 "=" -> operand1 = operand2
-                "/" -> if (operand2 == 0.0){
-                            operand1 = Double.NaN
+                "/" -> operand1 = if (operand2 == 0.0){
+                             Double.NaN
                         }else{
-                            operand1 = operand1!! / operand2!!
+                            operand1!! / operand2!!
                          }
                 "*" -> operand1 = operand1!! * operand2!!
                 "-" -> operand1 = operand1!! - operand2!!
