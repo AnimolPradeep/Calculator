@@ -23,15 +23,8 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        result = findViewById(R.id.result)
-        newNumber = findViewById(R.id.newNum)
-
-        //operation buttons
-        val equals = findViewById<Button>(R.id.equals)
-        val div = findViewById<Button>(R.id.div)
-        val mul = findViewById<Button>(R.id.mul)
-        val sub = findViewById<Button>(R.id.sub)
-        val add = findViewById<Button>(R.id.add)
+        result = binding.result
+        newNumber = binding.newNum
 
         val listener = View.OnClickListener { v ->
             val b = v as Button
@@ -50,6 +43,11 @@ class MainActivity : AppCompatActivity() {
             btn8.setOnClickListener(listener)
             btn9.setOnClickListener(listener)
             dot.setOnClickListener(listener)
+            equals.setOnClickListener(listener)
+            div.setOnClickListener(listener)
+            mul.setOnClickListener(listener)
+            sub.setOnClickListener(listener)
+            add.setOnClickListener(listener)
         }
 
         val opListener = View.OnClickListener { v ->
